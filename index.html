@@ -38,14 +38,14 @@
         }
 
         .logo-img {
-            width: 160px; 
+            width: 150px; 
             height: auto;
             display: block;
-            margin: 0 auto 15px auto;
+            margin: 0 auto 10px auto;
         }
 
         .brand-name { 
-            font-size: 42px; 
+            font-size: 38px; 
             font-weight: 900; 
             color: var(--primary-blue); 
             margin: 0;
@@ -53,10 +53,10 @@
 
         .brand-tagline { 
             color: var(--primary-orange); 
-            font-size: 14px; 
+            font-size: 13px; 
             margin-top: 5px; 
             font-weight: bold; 
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 25px;
         }
 
@@ -71,7 +71,7 @@
             margin-bottom: 8px; 
             font-weight: bold; 
             color: var(--primary-blue); 
-            font-size: 15px;
+            font-size: 14px;
         }
         
         input, select { 
@@ -80,7 +80,7 @@
             border: 2px solid #f0f0f0; 
             border-radius: 12px; 
             box-sizing: border-box; 
-            font-size: 16px;
+            font-size: 15px;
             text-align: right;
             font-family: inherit;
             background-color: #fafafa;
@@ -98,7 +98,7 @@
             padding: 18px; 
             width: 100%; 
             border-radius: 12px; 
-            font-size: 19px; 
+            font-size: 18px; 
             font-weight: bold; 
             cursor: pointer; 
             margin-top: 10px;
@@ -120,38 +120,38 @@
 
     <form id="orderForm" style="width: 100%;">
         <div class="form-group">
-            <label>ناڤێ کڕیاری:</label>
-            <input type="text" id="name" placeholder="ناڤێ تە یێ تەمام" required>
+            <label>ناڤێ کڕیاری / Customer Name:</label>
+            <input type="text" id="name" placeholder="Full Name / ناڤێ سیانی" required>
         </div>
 
         <div class="form-group">
-            <label>ژمارا مۆبایلێ:</label>
+            <label>ژمارا مۆبایلێ / Phone Number:</label>
             <input type="tel" id="phone" placeholder="07XXXXXXXXX" required>
         </div>
 
         <div class="form-group">
-            <label>باژێر:</label>
+            <label>باژێر / City:</label>
             <select id="city" required>
-                <option value="">باژێری هەلبژێره...</option>
-                <option value="دهۆک">دهۆک</option>
-                <option value="زاخۆ">زاخۆ</option>
-                <option value="ئاکرێ">ئاکرێ</option>
-                <option value="هەولێر">هەولێر</option>
-                <option value="باژێرەکێ دی">باژێرەکێ دی</option>
+                <option value="">Select City / باژێری هەلبژێره...</option>
+                <option value="Duhok">Duhok / دهۆک</option>
+                <option value="Zakho">Zakho / زاخۆ</option>
+                <option value="Akre">Akre / ئاکرێ</option>
+                <option value="Erbil">Erbil / هەولێر</option>
+                <option value="Other">Other / باژێرەکێ دی</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label>ناڤنیشان:</label>
-            <input type="text" id="address" placeholder="گەڕەک یان جهەکێ نێزیک" required>
+            <label>ناڤنیشان / Address:</label>
+            <input type="text" id="address" placeholder="Neighborhood / گەڕەک یان Street" required>
         </div>
 
         <div class="form-group">
-            <label>جۆرێ کالای:</label>
-            <input type="text" id="item" placeholder="جلک، پێلاڤ، یان هەر تشتەک..." required>
+            <label>جۆرێ کالای / Item Type:</label>
+            <input type="text" id="item" placeholder="Ex: Clothes, Shoes... / جلک، پێلاڤ..." required>
         </div>
 
-        <button type="button" onclick="sendToWhatsApp()">بڕێکا وەتسئاپێ بفرێژە</button>
+        <button type="button" onclick="sendToWhatsApp()">بڕێکا وەتسئاپێ بفرێژە / Send via WhatsApp</button>
     </form>
 </div>
 
@@ -165,11 +165,11 @@
         const item = document.getElementById('item').value;
 
         if(name && phone && city && address && item) {
-            const message = `📦 *RE POST - NEW ORDER*%0A%0A👤 *ناڤ:* ${name}%0A📞 *مۆبایل:* ${phone}%0A🏙️ *باژێر:* ${city}%0A📍 *ناڤنیشان:* ${address}%0A🛍️ *کالا:* ${item}`;
+            const message = `📦 *RE POST - NEW ORDER*%0A%0A👤 *Name/ناڤ:* ${name}%0A📞 *Phone/مۆبایل:* ${phone}%0A🏙️ *City/باژێر:* ${city}%0A📍 *Address/ناڤنیشان:* ${address}%0A🛍️ *Item/کالا:* ${item}`;
             const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${message}`;
             window.open(whatsappURL, '_blank');
         } else {
-            alert("تکایە هەمی خانەیان تژی بکە!");
+            alert("تکایە هەمی خانەیان تژی بکە! / Please fill all fields!");
         }
     }
 </script>
