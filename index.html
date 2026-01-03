@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,25 +32,16 @@
             max-width: 450px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* هەمی تشتان دکەتە سەنتەر */
+            align-items: center;
             box-sizing: border-box;
             text-align: center;
-        }
-
-        .logo-wrapper {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
         }
 
         .logo-img {
             width: 160px; 
             height: auto;
             display: block;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 15px auto;
         }
 
         .brand-name { 
@@ -66,12 +57,13 @@
             margin-top: 5px; 
             font-weight: bold; 
             letter-spacing: 3px;
+            margin-bottom: 25px;
         }
 
         .form-group { 
             width: 100%; 
             margin-bottom: 15px; 
-            text-align: left;
+            text-align: right; /* نڤێسین دچیتە ڕاستێ */
         }
 
         label { 
@@ -89,7 +81,7 @@
             border-radius: 10px; 
             box-sizing: border-box; 
             font-size: 15px;
-            background-color: #fafafa;
+            text-align: right; /* نڤێسینا ناڤ خانەی دچیتە ڕاستێ */
         }
 
         button {
@@ -103,53 +95,50 @@
             font-weight: bold; 
             cursor: pointer; 
             margin-top: 10px;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="logo-wrapper">
-        <img src="photo.png" alt="RE POST" class="logo-img">
-        <h1 class="brand-name">RE POST</h1>
-        <p class="brand-tagline">DOOR TO DOOR</p>
-    </div>
+    <img src="photo.png" alt="RE POST" class="logo-img">
+    <h1 class="brand-name">RE POST</h1>
+    <p class="brand-tagline">DOOR TO DOOR</p>
 
     <form id="orderForm" style="width: 100%;">
         <div class="form-group">
-            <label>Customer Name:</label>
-            <input type="text" id="name" placeholder="Full Name" required>
+            <label>ناڤێ کڕیاری:</label>
+            <input type="text" id="name" placeholder="ناڤێ سیانی بنڤێسە" required>
         </div>
 
         <div class="form-group">
-            <label>Phone Number:</label>
+            <label>ژمارا مۆبایلێ:</label>
             <input type="tel" id="phone" placeholder="07XXXXXXXXX" required>
         </div>
 
         <div class="form-group">
-            <label>City:</label>
+            <label>باژێر:</label>
             <select id="city" required>
-                <option value="">Select City...</option>
-                <option value="Duhok">Duhok</option>
-                <option value="Zakho">Zakho</option>
-                <option value="Akre">Akre</option>
-                <option value="Erbil">Erbil</option>
-                <option value="Other">Other City</option>
+                <option value="">باژێری هەلبژێره...</option>
+                <option value="Duhok">دهۆک</option>
+                <option value="Zakho">زاخۆ</option>
+                <option value="Akre">ئاکرێ</option>
+                <option value="Erbil">هەولێر</option>
+                <option value="Other">باژێرەکێ دی</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label>Address:</label>
-            <input type="text" id="address" placeholder="Neighborhood / Street" required>
+            <label>ناڤنیشان:</label>
+            <input type="text" id="address" placeholder="گەڕەک یان جهەکێ نێزیک" required>
         </div>
 
         <div class="form-group">
-            <label>Item Type (جۆرێ کالای):</label>
-            <input type="text" id="item" placeholder="Ex: Clothes, Shoes..." required>
+            <label>جۆرێ کالای:</label>
+            <input type="text" id="item" placeholder="بۆ نموونە: جلک، پێلاڤ..." required>
         </div>
 
-        <button type="button" onclick="sendToWhatsApp()">Send via WhatsApp</button>
+        <button type="button" onclick="sendToWhatsApp()">بڕێکا وەتسئاپێ بفرێژە</button>
     </form>
 </div>
 
@@ -163,11 +152,11 @@
         const item = document.getElementById('item').value;
 
         if(name && phone && city && address && item) {
-            const message = `📦 *RE POST - NEW ORDER*%0A%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🏙️ *City:* ${city}%0A📍 *Address:* ${address}%0A🛍️ *Item:* ${item}`;
+            const message = `📦 *RE POST - NEW ORDER*%0A%0A👤 *ناڤ:* ${name}%0A📞 *مۆبایل:* ${phone}%0A🏙️ *باژێر:* ${city}%0A📍 *ناڤنیشان:* ${address}%0A🛍️ *کالا:* ${item}`;
             const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${message}`;
             window.open(whatsappURL, '_blank');
         } else {
-            alert("Please fill all fields!");
+            alert("تکایە هەمی خانەیان تژی بکە!");
         }
     }
 </script>
