@@ -62,26 +62,33 @@
 
         .form-group { 
             width: 100%; 
-            margin-bottom: 15px; 
-            text-align: right; /* نڤێسین دچیتە ڕاستێ */
+            margin-bottom: 18px; 
+            text-align: right;
         }
 
         label { 
             display: block; 
-            margin-bottom: 5px; 
+            margin-bottom: 8px; 
             font-weight: bold; 
             color: var(--primary-blue); 
-            font-size: 14px;
+            font-size: 15px;
         }
         
         input, select { 
             width: 100%; 
-            padding: 12px; 
+            padding: 14px; 
             border: 2px solid #f0f0f0; 
-            border-radius: 10px; 
+            border-radius: 12px; 
             box-sizing: border-box; 
-            font-size: 15px;
-            text-align: right; /* نڤێسینا ناڤ خانەی دچیتە ڕاستێ */
+            font-size: 16px;
+            text-align: right;
+            font-family: inherit;
+            background-color: #fafafa;
+        }
+
+        input:focus {
+            border-color: var(--primary-blue);
+            outline: none;
         }
 
         button {
@@ -91,10 +98,16 @@
             padding: 18px; 
             width: 100%; 
             border-radius: 12px; 
-            font-size: 18px; 
+            font-size: 19px; 
             font-weight: bold; 
             cursor: pointer; 
             margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+        }
+
+        button:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
@@ -108,7 +121,7 @@
     <form id="orderForm" style="width: 100%;">
         <div class="form-group">
             <label>ناڤێ کڕیاری:</label>
-            <input type="text" id="name" placeholder="ناڤێ سیانی بنڤێسە" required>
+            <input type="text" id="name" placeholder="ناڤێ تە یێ تەمام" required>
         </div>
 
         <div class="form-group">
@@ -120,11 +133,11 @@
             <label>باژێر:</label>
             <select id="city" required>
                 <option value="">باژێری هەلبژێره...</option>
-                <option value="Duhok">دهۆک</option>
-                <option value="Zakho">زاخۆ</option>
-                <option value="Akre">ئاکرێ</option>
-                <option value="Erbil">هەولێر</option>
-                <option value="Other">باژێرەکێ دی</option>
+                <option value="دهۆک">دهۆک</option>
+                <option value="زاخۆ">زاخۆ</option>
+                <option value="ئاکرێ">ئاکرێ</option>
+                <option value="هەولێر">هەولێر</option>
+                <option value="باژێرەکێ دی">باژێرەکێ دی</option>
             </select>
         </div>
 
@@ -135,7 +148,7 @@
 
         <div class="form-group">
             <label>جۆرێ کالای:</label>
-            <input type="text" id="item" placeholder="بۆ نموونە: جلک، پێلاڤ..." required>
+            <input type="text" id="item" placeholder="جلک، پێلاڤ، یان هەر تشتەک..." required>
         </div>
 
         <button type="button" onclick="sendToWhatsApp()">بڕێکا وەتسئاپێ بفرێژە</button>
